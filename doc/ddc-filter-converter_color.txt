@@ -1,0 +1,60 @@
+*ddc-filter-converter_color.txt*		Add color previews to LSP completion items
+
+Author:  haxibami <contact at haxibami dot net>
+License: MIT License
+
+==============================================================================
+CONTENTS				*ddc-filter-converter_color-contents*
+
+Introduction				|ddc-filter-converter_color-introduction|
+Examples				|ddc-filter-converter_color-examples|
+Params					|ddc-filter-converter_color-params|
+
+
+==============================================================================
+INTRODUCTION				*ddc-filter-converter_color-introduction*
+
+This filter adds color previews to LSP completion items. Any LSP that supports
+textDocument/documentColor will have color previews on completion items.
+https://github.com/haxibami/ddc-filter-converter_color
+
+
+==============================================================================
+EXAMPLES				*ddc-filter-converter_color-examples*
+>
+	call ddc#custom#patch_global(#{
+	    \   sourceOptions: #{
+	    \     lsp: #{
+	    \       converters: [ 'converter_color' ],
+	    \     },
+	    \   }
+	    \ })
+<
+
+==============================================================================
+PARAMS					*ddc-filter-converter_color-params*
+
+					*ddc-filter-converter_color-param-symbol*
+symbol	(string)
+	Symbol to use for color preview.
+
+	Default: "■" (U+25A0)
+
+					*ddc-filter-converter_color-param-matchKind*
+matchKind	(string)
+	Kind of completion item to apply color previews to.
+
+	Default: "Color"
+
+					*ddc-filter-converter_color-param-strictMatch*
+strictMatch	(boolean)
+	Whether to match the exact kind of completion item. This is useful
+	when other converters are used that may modify the kind of completion.
+	If this is false, the converter will match any completion item that
+	contains the matchKind string.
+
+	Default: v:false
+
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:
